@@ -60,3 +60,29 @@ node plexamp/js/index.js
 # Check hostname and restart Plexamp, then log in at x.x.x.x:32500
 hostname -I
 node plexamp/js/index.js
+
+# Configure plexamp.service to refer to custom username and node verion
+nano plexamp/plexamp.service
+
+# [Unit]
+# Description=Plexamp
+# After=network-online.target
+# Requires=network-online.target
+
+# [Service]
+# Type=simple
+# User=orangepi
+# WorkingDirectory=/home/orangepi/plexamp
+# ExecStart=/home/orangepi/.nvm/versions/node/v16.20.2/bin/node /home/orangepi/plexamp/js/index.js
+# Restart=on-failure
+
+# [Install]
+# WantedBy=multi-user.target
+
+
+# Configure Plexamp to start automatically
+cd plexamp
+sudo cp plexamp.service /lib/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable plexamp
+sudo systemctl start plexamp
