@@ -49,3 +49,14 @@ nvm -v
 # Install and select v16.20.2
 nvm install v16.20.2
 nvm use v16.20.2
+
+# Install Plexamp Headless - CHOOSE LATEST VERSION instead of 4.9.4
+curl https://plexamp.plex.tv/headless/Plexamp-Linux-headless-v4.9.4.tar.bz2 > plexamp.tar.bz2
+tar -xvf plexamp.tar.bz2
+
+# Start Plexamp and enter claim token from https://plex.tv/claim
+node plexamp/js/index.js
+
+# Check hostname and restart Plexamp, then log in at x.x.x.x:32500
+hostname -I
+node plexamp/js/index.js
