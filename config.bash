@@ -1,4 +1,4 @@
-# After flashing Debian and connecting with ethernet, SSH in as orangepi user
+# After flashing Debian and connecting with ethernet, SSH in as default user "orangepi"
 ssh orangepi@orangepizero2
 
 # Change default password for root and default user
@@ -29,19 +29,8 @@ sudo apt clean
 sudo nmcli device wifi connect ATTRufwJsA password <WiFi_Password>
 sudo reboot
 
-# Install Node.js
-sudo apt-get install -y ca-certificates curl gnupg && sudo mkdir -p /etc/apt/keyrings
-curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg
-NODE_MAJOR=16
-echo deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main | sudo tee /etc/apt/sources.list.d/nodesource.list
-sudo apt-get update && sudo apt-get install -y nodejs
-
-
-# Check Node.js version to ensure v16.x.x
-node -v
-
-# If Node.js is not v16.x.x, proceed to install NVM
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+# Install latest version of Node Version Manager (NVM) from https://github.com/nvm-sh/nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 sudo reboot
 
 # Confirm that NVM installed successfully
@@ -62,7 +51,7 @@ node plexamp/js/index.js
 hostname -I
 node plexamp/js/index.js
 
-# Configure plexamp.service to refer to custom username and node verion
+# Configure plexamp.service to refer to custom username and node version
 nano plexamp/plexamp.service
 
 # [Unit]
