@@ -1,4 +1,4 @@
-# After flashing Debian, SSH in as orangepi user
+# After flashing Debian and connecting with ethernet, SSH in as orangepi user
 ssh orangepi@orangepizero2
 
 # Change default password for root and default user
@@ -16,16 +16,17 @@ mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 touch ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
-
-# After testing SSH with key, remove SSH password access
-sudo nano /etc/ssh/sshd_config # Change "PasswordAuthentication" to no
-sudo systemctl restart sshd
+nano ~/.ssh/authorized_keys
 
 # Update packages
 sudo apt update
 sudo apt upgrade -y
 sudo apt autoremove
 sudo apt clean
+
+# Connect to WiFi
+# sudo iwlist wlan0 scan | grep ESSID
+sudo nmcli device wifi connect ATTRufwJsA password <WiFi_Password>
 sudo reboot
 
 # Install Node.js
@@ -86,3 +87,7 @@ sudo cp plexamp.service /lib/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable plexamp
 sudo systemctl start plexamp
+
+# After testing SSH with key, remove SSH password access
+sudo nano /etc/ssh/sshd_config # Change "PasswordAuthentication" to no
+sudo systemctl restart sshd
