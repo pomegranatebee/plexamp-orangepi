@@ -1,4 +1,4 @@
-# After flashing Debian and connecting with ethernet, SSH in as default user "orangepi"
+# After flashing Debian 3.1.0 and connecting with ethernet, SSH in as default user "orangepi"
 ssh orangepi@orangepizero2
 
 # Change default password for root and default user
