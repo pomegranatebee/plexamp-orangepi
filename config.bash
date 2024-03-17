@@ -36,23 +36,23 @@ sudo reboot
 # Confirm that NVM installed successfully
 nvm -v
 
-# Install and select v16.20.2
-nvm install v16.20.2
-nvm use v16.20.2
+# Install and select v20.11.1
+nvm install v20.11.1
+nvm use v20.11.1
 
-# Install Plexamp Headless - CHOOSE LATEST VERSION instead of 4.9.4
-curl https://plexamp.plex.tv/headless/Plexamp-Linux-headless-v4.9.4.tar.bz2 > plexamp.tar.bz2
+# Install Plexamp Headless - CHOOSE LATEST VERSION instead of 4.10.0
+curl https://plexamp.plex.tv/headless/Plexamp-Linux-headless-v4.10.0.tar.bz2 > plexamp.tar.bz2
 tar -xvf plexamp.tar.bz2
 
 # Start Plexamp and enter claim token from https://plex.tv/claim
-node plexamp/js/index.js
+node ~/plexamp/js/index.js
 
 # Check hostname and restart Plexamp, then log in at x.x.x.x:32500
 hostname -I
-node plexamp/js/index.js
+node ~/plexamp/js/index.js
 
 # Configure plexamp.service to refer to custom username and node version
-nano plexamp/plexamp.service
+nano ~/plexamp/plexamp.service
 
 # [Unit]
 # Description=Plexamp
@@ -63,7 +63,7 @@ nano plexamp/plexamp.service
 # Type=simple
 # User=orangepi
 # WorkingDirectory=/home/orangepi/plexamp
-# ExecStart=/home/orangepi/.nvm/versions/node/v16.20.2/bin/node /home/orangepi/plexamp/js/index.js
+# ExecStart=/home/orangepi/.nvm/versions/node/v20.11.1/bin/node /home/orangepi/plexamp/js/index.js
 # Restart=on-failure
 
 # [Install]
@@ -71,7 +71,7 @@ nano plexamp/plexamp.service
 
 
 # Configure Plexamp to start automatically
-cd plexamp
+cd ~/plexamp
 sudo cp plexamp.service /lib/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable plexamp
