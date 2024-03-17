@@ -26,7 +26,7 @@ sudo apt clean
 
 # Connect to WiFi
 # sudo iwlist wlan0 scan | grep ESSID
-sudo nmcli device wifi connect ATTRufwJsA password <WiFi_Password>
+sudo nmcli device wifi connect <WiFi SSID>  password <WiFi_Password>
 sudo reboot
 
 # Install latest version of Node Version Manager (NVM) from https://github.com/nvm-sh/nvm
