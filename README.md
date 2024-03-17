@@ -4,6 +4,6 @@
 2. HiFimeDIY UAE23 USB DAC (Currently $30 with shipping on HiFimeDIY)
 
 # References
-https://howtohifi.com/install-headless-plexamp-endpoint-home-network-raspberry-pi/
-https://howtohifi.com/how-to-start-plexamp-automatically-when-you-power-on-your-raspberry-pi/
-https://howtohifi.com/how-to-enable-updates-for-headless-plexamp-using-raspberry-pi/
+- https://howtohifi.com/install-headless-plexamp-endpoint-home-network-raspberry-pi/
+- https://howtohifi.com/how-to-start-plexamp-automatically-when-you-power-on-your-raspberry-pi/
+- https://howtohifi.com/how-to-enable-updates-for-headless-plexamp-using-raspberry-pi/
